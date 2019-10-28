@@ -1,0 +1,33 @@
+<ion-menu contentId="content1" side="start">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Welcome</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <ion-list lines="none">
+            <ion-item-divider>
+                <mat-icon aria-hidden="false">room</mat-icon>
+                <span style="margin-right: 5px;">144/A-18, Trimurti CHS, New mhada coloney, Pawar nagar, Thane(W), 400610.</span>
+              </ion-item-divider>
+            <ion-item  *ngFor="let _menu of MenuItems">
+              <mat-icon aria-hidden="false">{{_menu.icon}}</mat-icon>
+              <ion-label>&nbsp;&nbsp;{{_menu.name}}</ion-label>
+            </ion-item>
+            <ion-item-divider>
+                <ion-label>
+                  Other
+                </ion-label>
+              </ion-item-divider>
+              <ion-item  *ngFor="let _menu of OtherMenuItems">
+                  <mat-icon aria-hidden="false">{{_menu.icon}}</mat-icon>
+                  <ion-label>&nbsp;&nbsp;{{_menu.name}}</ion-label>
+                </ion-item>
+                <ion-item-divider>
+                  </ion-item-divider>
+                  <ion-label color="medium" style="padding-left: 10px;">
+                      V1.0.0
+                     </ion-label>
+          </ion-list>
+    </ion-content>
+  </ion-menu>

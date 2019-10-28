@@ -24,3 +24,18 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+@import "~materialize-css/dist/css/materialize.min.css";
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+.icon-left {
+    padding: 0 20px;
+  }
+
+.text-spacer {
+    padding: 0 14px;
+  }
+  
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  
