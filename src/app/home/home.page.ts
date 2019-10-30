@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { Router, NavigationEnd } from '@angular/router';
-
+import { Observable } from 'rxjs';
+import { ProductsService } from '../services/products.service';
 export interface FruitsList{
   name:string;
   image:string;
@@ -17,7 +18,8 @@ export interface FruitsList{
 export class HomePage {
 
   myCart = [];
-
+  FruitsList:FruitsList[] = [];
+  vegitablesList:FruitsList[] = [];
 
   slideOpts = {
     autoplay: true,
@@ -31,33 +33,61 @@ export class HomePage {
     centeredSlides: false
   };
 
+  constructor(private menu: MenuController, private storage: Storage, private router: Router,private _ProductsService: ProductsService) {}
 
-  FruitsList:FruitsList[] = [
-    {name:"Apple",image:"../assets/images/fruits/apple.png",price:50},
-    {name:"Avocado",image:"../assets/images/fruits/avocado.png",price:120},
-    {name:"Berry",image:"../assets/images/fruits/berry.png",price:80},
-    {name:"Coconut",image:"../assets/images/fruits/coconut.png",price:30},
-    {name:"Kiwi",image:"../assets/images/fruits/kiwi.png",price:45},
-    {name:"Orange",image:"../assets/images/fruits/orange.png",price:20},
-    {name:"Pear",image:"../assets/images/fruits/pear.png",price:60},
-    {name:"Pineapple",image:"../assets/images/fruits/pineapple.png",price:35},
-    {name:"Raspberry",image:"../assets/images/fruits/raspberry.png",price:110},
-  ];
 
-  vegitablesList:FruitsList[] = [
-    {name:"Aubergine",image:"../assets/images/vegitables/aubergine.png",price:30},
-    {name:"Broccoli",image:"../assets/images/vegitables/broccoli.png",price:40},
-    {name:"Carrot",image:"../assets/images/vegitables/carrot.png",price:25},
-    {name:"Cucumber",image:"../assets/images/vegitables/cucumber.png",price:15},
-    {name:"Garlic",image:"../assets/images/vegitables/garlic.png",price:60},
-    {name:"Lemon",image:"../assets/images/vegitables/lemon.png",price:5},
-    {name:"Onion",image:"../assets/images/vegitables/onion.png",price:50},
-    {name:"Pepper",image:"../assets/images/vegitables/pepper.png",price:45},
-    {name:"Salad",image:"../assets/images/vegitables/salad.png",price:30},
-    {name:"Tomato",image:"../assets/images/vegitables/tomato.png",price:35},
-  ];
+  ngOnInit() {
+    this.getProducts();
+    this.getCartDetails();
+ }
 
-  constructor(private menu: MenuController, private storage: Storage, private router: Router,) {}
+ ionViewWillEnter()
+ {
+  this.getProducts();
+   this.getCartDetails()
+ }
+
+ getFruits()
+ {
+  this.FruitsList = this._ProductsService.getFruitsList();
+ }
+
+ getVegitables()
+ {
+  this.vegitablesList = this._ProductsService.getVegitablesList();
+ }
+
+ getProducts()
+ {
+    this.getFruits();
+    this.getVegitables();
+ }
+
+ getCartDetails()
+ {
+     this. storage.get('cart').then((val) => {
+       if(val != null)
+        this.myCart = JSON.parse(val);
+     });
+ }
+
+ ExitInCart(item)
+ {
+   if(this.myCart.length > 0)
+   {
+    this.myCart.map((value)=>{
+        if(value.name == item.name)
+          {
+            item.qty = value.qty;
+            return true
+          }
+          else{
+            return false;
+          }
+    });
+   }
+ }
+
 
   openFirst() {
     this.menu.enable(true, 'first');
@@ -77,6 +107,7 @@ export class HomePage {
   {
     item.qty = 1;
     this.myCart.push(item);
+    this.storage.set('cart', JSON.stringify(this.myCart));
   }
   
   updateitemQty(item,type)
@@ -106,18 +137,21 @@ export class HomePage {
   }
 
 
-  redirectionToUrl(path, fieldid)
+  redirectionToUrl(urlparams)
   {
-    if(fieldid)
-    this.router.navigate([path,fieldid]);
-    else
-    this.router.navigate([path]);
+    this.router.navigate(urlparams);
   }
 
   UpdateCart()
   {
       this.storage.set('cart', JSON.stringify(this.myCart));
-      this.router.navigate(['cart']);
+      this.redirectionToUrl(['/cart']);
+  }
+
+  ProductDetails(id,container)
+  {
+    id = parseInt(id)+1;
+    this.redirectionToUrl(['/productdetails',id,container])
   }
 
 

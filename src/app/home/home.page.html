@@ -45,31 +45,19 @@
 
   <!-- FRUITS SLIDER -->
   <ion-slides [options]="slideOptGrossary">
-    <ion-slide *ngFor="let fruits of FruitsList">
+    <ion-slide *ngFor="let fruits of FruitsList; let i = index">
       <div>
         <ion-card>
-          <ion-card-header>
+          <ion-card-header (click)="ProductDetails(i,'FruitsList')">
             <ion-card-title>
               {{ fruits.name }} <br> <ion-text color="danger">{{fruits.price | currency:"₹"}}</ion-text>
             </ion-card-title>
             <ion-card-content>
               <ion-img [src]="fruits.image"></ion-img>
-               <!-- <ion-button *ngIf="(!fruits.qty || fruits.qty == 0)" expand="full" (click)="addToCart(fruits)">Add to Cart</ion-button>
-
-
-              <div class="btn-group" *ngIf="(fruits.qty && fruits.qty > 0)">
-                <button type="button" class="btn btn-primary" (click)="updateitemQty(fruits,'dec')"><i class="material-icons">
-                  exposure_neg_1
-                  </i></button>
-                <button type="button" class="btn btn-primary" disabled>{{fruits.qty}}</button>
-                <button type="button" class="btn btn-primary" (click)="updateitemQty(fruits,'inc')"><i class="material-icons">
-                  exposure_plus_1
-                  </i></button>
-              </div> -->
             </ion-card-content>
           </ion-card-header>
           <ion-footer>
-              <mat-toolbar color="primary" *ngIf="(!fruits.qty || fruits.qty == 0)">
+              <mat-toolbar color="primary" *ngIf="(!fruits.qty || fruits.qty == 0 || ExitInCart(fruits))">
                 
                   <ion-tabs>
                       <ion-tab-bar slot="bottom" class="themebg">
@@ -81,7 +69,7 @@
                     </ion-tabs>
               </mat-toolbar>
 
-              <mat-toolbar color="primary" *ngIf="(fruits.qty && fruits.qty > 0)">
+              <mat-toolbar color="primary" *ngIf="(fruits.qty && fruits.qty > 0 || ExitInCart(fruits))">
                   <ion-tabs>
                       <ion-tab-bar slot="bottom"  class="themebg">
                         <ion-tab-button (click)="updateitemQty(fruits,'dec')" style="background-color: transparent;">
@@ -121,10 +109,10 @@
 
   <!-- FRUITS SLIDER -->
   <ion-slides [options]="slideOptGrossary">
-    <ion-slide *ngFor="let vegitables of vegitablesList">
+    <ion-slide *ngFor="let vegitables of vegitablesList; let i = index">
       <div>
         <ion-card>
-          <ion-card-header>
+          <ion-card-header (click)="ProductDetails(i,'vegitablesList')">
             <ion-card-title>
               {{ vegitables.name }} <br> <ion-text color="danger">{{vegitables.price | currency:"₹"}}</ion-text>
             </ion-card-title>
@@ -133,7 +121,7 @@
             </ion-card-content>
           </ion-card-header>
           <ion-footer>
-              <ion-toolbar *ngIf="(!vegitables.qty || vegitables.qty == 0)">
+              <ion-toolbar *ngIf="(!vegitables.qty || vegitables.qty == 0 || ExitInCart(vegitables))">
                 
                   <ion-tabs>
                       <ion-tab-bar slot="bottom"  class="themebg">
@@ -145,7 +133,7 @@
                     </ion-tabs>
               </ion-toolbar>
 
-              <ion-toolbar *ngIf="(vegitables.qty && vegitables.qty > 0)">
+              <ion-toolbar *ngIf="(vegitables.qty && vegitables.qty > 0 || ExitInCart(vegitables))">
                   <ion-tabs>
                       <ion-tab-bar slot="bottom" class="themebg">
                         <ion-tab-button  (click)="updateitemQty(vegitables,'dec')" style="background-color: transparent;">

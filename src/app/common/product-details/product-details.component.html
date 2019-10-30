@@ -1,0 +1,60 @@
+<ion-header>
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <ion-back-button></ion-back-button>
+        <span class="text-spacer">App name</span>
+        <span class="example-spacer"></span>
+        <mat-icon class="icon-left" aria-hidden="false" matBadge="{{myCart.length}}" matBadgePosition="after"
+          matBadgeColor="warn" (click)="RedirectToCart()">shopping_cart</mat-icon>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </ion-header>
+<ion-content fullscreen>
+  <!-- SLIDER -->
+  <ion-slides pager="true" [options]="slideOpts">
+      <ion-slide>
+          <pinch-zoom>
+              <img [src]="ProductDetails.image"/>
+          </pinch-zoom>
+      </ion-slide>
+</ion-slides>
+<!-- SLIDER -->
+<ion-grid>
+
+  <ion-row>
+    <ion-col>
+      <ion-title>{{ProductDetails.name}}</ion-title>
+    </ion-col>
+    <ion-col class="text-right">
+      <ion-title>{{ProductDetails.price | currency:"₹"}}</ion-title>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+      <div class="col-12 col-sm-12 col-md-12">
+          <div class="btn-group btn-group-sm pull-right pb-2" *ngIf="(ProductDetails.qty && ProductDetails.qty > 0 || ExitInCart(ProductDetails))">
+            <button type="button" class="btn-floating btn-small waves-effect waves-light"><i class="material-icons"
+                (click)="updateitemQty(ProductDetails,'dec')">
+                remove
+              </i></button>
+            <button type="button" class="btn-floating btn-small waves-effect waves-light grey">{{ProductDetails.qty}}</button>
+            <button type="button" class="btn-floating btn-small waves-effect waves-light"><i class="material-icons"
+                (click)="updateitemQty(ProductDetails,'inc')">
+                add
+              </i></button>
+          </div>
+
+          <button class="btn-small waves-effect waves-light pull-right pb-2" *ngIf="(!ProductDetails.qty || ProductDetails.qty == 0 || ExitInCart(ProductDetails))" (click)="addToCart(ProductDetails)">
+            Add to cart
+          </button>
+        </div>
+    </ion-row>
+  <ion-row>
+    <ion-col>
+      <p>
+          What is Lorem Ipsum?
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      </p>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>

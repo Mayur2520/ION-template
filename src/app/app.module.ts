@@ -13,15 +13,20 @@ import { IonicStorageModule } from '@ionic/storage';
 
 import { NavigationComponent } from './common/navigation/navigation.component';
 import { CartComponent } from './common/cart/cart.component';
+import { ProductDetailsComponent } from './common/product-details/product-details.component';
+import { SubheaderComponent } from './common/subheader/subheader.component';
+import { ProductsService } from './services/products.service';
 import { MaterialModules } from './modules/material-module';
+import {PinchZoomModule} from 'ngx-pinch-zoom';
 @NgModule({
-  declarations: [AppComponent, NavigationComponent, CartComponent],
+  declarations: [AppComponent, NavigationComponent, CartComponent, ProductDetailsComponent, SubheaderComponent],
   entryComponents: [NavigationComponent],
-  imports: [BrowserModule, IonicStorageModule.forRoot(), IonicModule.forRoot(), AppRoutingModule, BrowserAnimationsModule, MaterialModules],
+  imports: [BrowserModule, IonicStorageModule.forRoot(), IonicModule.forRoot(), AppRoutingModule, BrowserAnimationsModule, MaterialModules, PinchZoomModule],
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    ProductsService
   ],
   bootstrap: [AppComponent]
 })
