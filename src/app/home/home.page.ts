@@ -154,5 +154,10 @@ export class HomePage {
     this.redirectionToUrl(['/productdetails',id,container])
   }
 
+  OpenOnSeparateSection(container,title)
+  {
+    this.redirectionToUrl(['/productsection',container,title])
+  }
+
 
 }

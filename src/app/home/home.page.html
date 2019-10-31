@@ -1,7 +1,7 @@
 <ion-header>
   <mat-toolbar color="primary">
     <mat-toolbar-row>
-        <ion-menu-button autoHide="false"></ion-menu-button>
+        <ion-menu-button autoHide="true"></ion-menu-button>
       <span class="text-spacer">App name</span>
       <span class="example-spacer"></span>
       <mat-icon class="icon-left" aria-hidden="false" matBadge="{{myCart.length}}"  matBadgePosition="after" matBadgeColor="warn" (click)="UpdateCart()">shopping_cart</mat-icon>
@@ -37,8 +37,8 @@
   </ion-slides>
   <!-- SLIDER -->
 
-  <ion-item-divider>
-    <ion-label>
+  <ion-item-divider class="ion-devider">
+    <ion-label (click)="OpenOnSeparateSection('FruitsList','FRUITS')">
      FRUITS
     </ion-label>
   </ion-item-divider>
@@ -101,8 +101,8 @@
   </ion-slides>
 <!-- FRUITS SLIDER -->
 
-  <ion-item-divider>
-    <ion-label>
+  <ion-item-divider class="ion-devider">
+    <ion-label (click)="OpenOnSeparateSection('vegitablesList','VEGITABLES')">
      VEGITABLES
     </ion-label>
   </ion-item-divider>

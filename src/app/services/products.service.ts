@@ -52,4 +52,8 @@ getProductDetails(id,container): FruitsList[] {
     return eval('this.'+container+'['+id+']');
 }
 
+getProductsList(container): FruitsList[] {
+    return eval('this.'+container);
+}
+
 }

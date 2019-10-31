@@ -10,18 +10,35 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IonicStorageModule } from '@ionic/storage';
+import { FormsModule } from '@angular/forms';
 
 import { NavigationComponent } from './common/navigation/navigation.component';
+import { AboutusComponent } from './common/aboutus/aboutus.component';
 import { CartComponent } from './common/cart/cart.component';
+import { ConfirmOrderComponent } from './common/confirm-order/confirm-order.component';
+import { CustomerSupportComponent } from './common/customer-support/customer-support.component';
+import { LoginComponent } from './common/login/login.component';
+import { OffersComponent } from './common/offers/offers.component';
+import { OrderHistoryComponent } from './common/order-history/order-history.component';
+import { OrderPaymentComponent } from './common/order-payment/order-payment.component';
 import { ProductDetailsComponent } from './common/product-details/product-details.component';
-import { SubheaderComponent } from './common/subheader/subheader.component';
+import { SeparetSectionComponent } from './common/separet-section/separet-section.component';
+import { SignupComponent } from './common/signup/signup.component';
+
 import { ProductsService } from './services/products.service';
 import { MaterialModules } from './modules/material-module';
 import {PinchZoomModule} from 'ngx-pinch-zoom';
 @NgModule({
-  declarations: [AppComponent, NavigationComponent, CartComponent, ProductDetailsComponent, SubheaderComponent],
+  declarations: [AppComponent, NavigationComponent, CartComponent, ProductDetailsComponent, SeparetSectionComponent,AboutusComponent,
+    ConfirmOrderComponent,
+    CustomerSupportComponent,
+    LoginComponent,
+    OffersComponent,
+    OrderHistoryComponent,
+    OrderPaymentComponent,
+    SignupComponent],
   entryComponents: [NavigationComponent],
-  imports: [BrowserModule, IonicStorageModule.forRoot(), IonicModule.forRoot(), AppRoutingModule, BrowserAnimationsModule, MaterialModules, PinchZoomModule],
+  imports: [BrowserModule, IonicStorageModule.forRoot(), IonicModule.forRoot(), AppRoutingModule, BrowserAnimationsModule, MaterialModules, PinchZoomModule, FormsModule],
   providers: [
     StatusBar,
     SplashScreen,

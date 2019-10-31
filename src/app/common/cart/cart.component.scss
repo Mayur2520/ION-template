@@ -60,3 +60,15 @@ input:disabled{
     background-color:white;
 }
          
+.emptycart
+{
+    display: table;
+  position: absolute;
+  top: 15%;
+  left: 0;
+}
+.middel-container
+{
+    display: table-cell;
+    vertical-align: middle;
+}

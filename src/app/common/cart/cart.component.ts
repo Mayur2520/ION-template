@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage';
-
+import { Router, NavigationEnd } from '@angular/router';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -11,7 +11,7 @@ export class CartComponent implements OnInit {
   myCart:any[] = [];
   discount = 0;
   shipping = 29;
-  constructor(private storage: Storage) { }
+  constructor(private storage: Storage, private router: Router) { }
 
   ngOnInit() {
      this.getCartDetails()
@@ -66,6 +66,11 @@ export class CartComponent implements OnInit {
     });
 
     return mrp;
+  }
+
+  redirectionToUrl(urlparams)
+  {
+    this.router.navigate([urlparams]);
   }
 
 

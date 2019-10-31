@@ -2,13 +2,13 @@
   <mat-toolbar color="primary">
     <mat-toolbar-row>
       <ion-back-button></ion-back-button>
-      <span class="text-spacer">App name</span>
+      <span class="text-spacer">Cart</span>
       <span class="example-spacer"></span>
       <mat-icon class="icon-left" aria-hidden="false" matBadge="{{myCart.length}}" matBadgePosition="after"
         matBadgeColor="warn" (click)="UpdateCart()">shopping_cart</mat-icon>
     </mat-toolbar-row>
   </mat-toolbar>
-  <ion-toolbar>
+  <ion-toolbar *ngIf="myCart.length > 0">
       <ion-item>
           <ion-grid>
             <ion-row>
@@ -44,6 +44,9 @@
               <ion-col size="6" class="pull-right text-right">
                 <ion-title>{{(calculateMrp() + discount + shipping)| currency:"₹"}}</ion-title>
               </ion-col>
+              <ion-col size="12" class="pull-right text-right">
+                      <ion-label class="orange-text">Checkout <i class="fa fa-arrow-right" aria-hidden="true"></i></ion-label>
+              </ion-col>
             </ion-row>
           </ion-grid>
         </ion-item>
@@ -51,7 +54,22 @@
 </ion-header>
 <ion-content>
 
-  <ion-list>
+  <div class="row emptycart" *ngIf="myCart.length == 0">
+    <div class="middel-container">
+    <div class="col-6 col-md-6 col-sm-6 ml-auto mr-auto mt-4">
+        <ion-img src="../../../assets/images/shopping-basket.png"></ion-img>
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 ml-auto mr-auto mt-2">
+      <ion-title>No items in your cart</ion-title>
+      <p>Fill the cart with your favourite items.</p>
+    </div>
+    <div class="col-6 col-sm-6 col-md-6 ml-auto mr-auto">
+      <button class="btn-small waves-effect waves-light" (click)="redirectionToUrl('/home')">Start Shopping</button>
+    </div>
+  </div>
+  </div>
+
+  <ion-list *ngIf="myCart.length > 0">
     <ion-item *ngFor="let _data of myCart">
       <ion-avatar slot="start">
         <ion-img [src]="_data.image"></ion-img>

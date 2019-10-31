@@ -1,0 +1,28 @@
+<ion-header>
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <ion-back-button></ion-back-button>
+        <span class="text-spacer">Offers</span>
+        <span class="example-spacer"></span>
+       <!--  <mat-icon class="icon-left" aria-hidden="false" matBadge="{{myCart.length}}" matBadgePosition="after"
+          matBadgeColor="warn" (click)="RedirectToCart()">shopping_cart</mat-icon> -->
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </ion-header>
+<ion-content fullscreen>
+     <ion-grid>
+       <ion-row>
+         <ion-col *ngFor="let _data of offersList; let i = index" size="{{_data.size}}">
+
+            <mat-card class="offer-card">
+                <ion-img mat-card-image [src]="_data.image"></ion-img>
+                <mat-card-content>
+                  <p>
+                      {{_data.name}}
+                  </p>
+                </mat-card-content>
+              </mat-card>
+         </ion-col>
+       </ion-row>
+     </ion-grid>
+</ion-content>
