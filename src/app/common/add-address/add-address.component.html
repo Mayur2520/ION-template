@@ -1,0 +1,56 @@
+<ion-header>
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <ion-back-button></ion-back-button>
+        <span class="text-spacer">Add address</span>
+        <span class="example-spacer"></span>
+       <!--  <mat-icon class="icon-left" aria-hidden="false" matBadge="{{myCart.length}}" matBadgePosition="after"
+          matBadgeColor="warn" (click)="RedirectToCart()">shopping_cart</mat-icon> -->
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </ion-header>
+  <ion-content fullscreen>
+<ion-grid>
+  <ion-row>
+    <ion-col size="12" class="mt-4">
+         <mat-radio-group aria-label="Select an option" class="ml-4" >
+              <mat-radio-button value="Mr.">Mr.</mat-radio-button>
+              <mat-radio-button value="Mrs.">Mrs.</mat-radio-button>
+              <mat-radio-button value="miss">miss</mat-radio-button>
+            </mat-radio-group> 
+    </ion-col>
+
+    <ion-item class="col-12 col-md-12 col-sm-12" lines="inset">
+        <ion-label position="floating">Name</ion-label>
+        <ion-input></ion-input>
+    </ion-item>
+
+    <ion-item class="col-12 col-md-12 col-sm-12" lines="inset">
+        <ion-label position="floating">Flat/House/Office No.</ion-label>
+        <ion-input></ion-input>
+    </ion-item>
+
+    <ion-item class="col-12 col-md-12 col-sm-12" lines="inset">
+        <ion-label position="floating">Street/Society/Office Name</ion-label>
+        <ion-input></ion-input>
+    </ion-item>
+
+    <ion-item class="col-12 col-md-12 col-sm-12" lines="inset">
+        <ion-label position="floating">Location</ion-label>
+        <ion-input></ion-input>
+    </ion-item>
+
+    <ion-item class="col-12 col-md-12 col-sm-12" lines="none">
+        <section>
+            <header> Name of your Address</header>
+            <ion-button size="small">Home</ion-button>
+            <ion-button size="small">Office</ion-button>
+            <ion-button size="small">Other</ion-button>
+          </section>
+
+    </ion-item>
+  </ion-row>
+</ion-grid>
+     
+
+  </ion-content>

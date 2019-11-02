@@ -10,12 +10,19 @@ export interface FruitsList{
   price:number;
 }
 
+
+
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+
+
+
+
 
   myCart = [];
   FruitsList:FruitsList[] = [];

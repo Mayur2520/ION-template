@@ -6,9 +6,9 @@
     </ion-header>
     <ion-content>
         <ion-list lines="none">
-            <ion-item-divider>
-                <mat-icon aria-hidden="false">room</mat-icon>
-                <span style="margin-right: 5px;">144/A-18, Trimurti CHS, New mhada coloney, Pawar nagar, Thane(W), 400610.</span>
+            <ion-item-divider (click)="redirectionToUrl('/addresses')">
+                <!-- <mat-icon aria-hidden="false">room</mat-icon> -->
+                <span style="margin-right: 5px;">{{currentAddress}}</span>
               </ion-item-divider>
             <ion-item  *ngFor="let _menu of MenuItems" (click)="redirectionToUrl(_menu.url)">
               <mat-icon aria-hidden="false">{{_menu.icon}}</mat-icon>
@@ -28,8 +28,23 @@
                   </ion-item>
                   
                               <ion-item>
-                                  <ion-label>Night mode</ion-label>
-                                  <ion-toggle [(ngModel)]="nightmode" (click)="changeTheme('night')"></ion-toggle>
+                                <ion-col>
+                                <ion-label>App mode</ion-label>
+                                </ion-col>  
+                                <ion-col class="text-right">
+                                  <label class="switch mt-2">
+                                    <input type="checkbox" [(ngModel)]="nightmode" (click)="enableDisableNightMode()" class="checkbox-white">
+                                    <span class="slider round"></span>
+                                  </label> 
+                                </ion-col>
+
+                               
+                                 <!--  <label class="switch mt-2">
+                                    <input type="checkbox" (click)="enableDisableNightMode()" class="checkbox-white">
+                                    <span class="slider round"></span>
+                                  </label> -->
+
+                                  <!-- <ion-toggle [(ngModel)]="nightmode" (click)="enableDisableNightMode()"></ion-toggle> -->
                                 </ion-item>
         
           </ion-list>

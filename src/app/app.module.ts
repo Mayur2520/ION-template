@@ -11,9 +11,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IonicStorageModule } from '@ionic/storage';
 import { FormsModule } from '@angular/forms';
+import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
+import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { LocationAccuracy } from '@ionic-native/location-accuracy/ngx';
 
 import { NavigationComponent } from './common/navigation/navigation.component';
 import { AboutusComponent } from './common/aboutus/aboutus.component';
+import { AddressListComponent } from './common/address-list/address-list.component';
+import { AddAddressComponent } from './common/add-address/add-address.component';
 import { CartComponent } from './common/cart/cart.component';
 import { ConfirmOrderComponent } from './common/confirm-order/confirm-order.component';
 import { CustomerSupportComponent } from './common/customer-support/customer-support.component';
@@ -36,14 +42,17 @@ import {PinchZoomModule} from 'ngx-pinch-zoom';
     OffersComponent,
     OrderHistoryComponent,
     OrderPaymentComponent,
-    SignupComponent],
+    SignupComponent,AddressListComponent,
+    AddAddressComponent],
   entryComponents: [NavigationComponent],
-  imports: [BrowserModule, IonicStorageModule.forRoot(), IonicModule.forRoot(), AppRoutingModule, BrowserAnimationsModule, MaterialModules, PinchZoomModule, FormsModule],
+  imports: [BrowserModule, IonicStorageModule.forRoot(), IonicModule.forRoot(), AppRoutingModule, BrowserAnimationsModule, MaterialModules, PinchZoomModule, FormsModule, ],
   providers: [
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    ProductsService
+    ProductsService,
+    NativeGeocoder, Geolocation,AndroidPermissions,
+    LocationAccuracy
   ],
   bootstrap: [AppComponent]
 })

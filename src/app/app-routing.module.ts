@@ -11,6 +11,8 @@ import { OrderPaymentComponent } from './common/order-payment/order-payment.comp
 import { ProductDetailsComponent } from './common/product-details/product-details.component';
 import { SeparetSectionComponent } from './common/separet-section/separet-section.component';
 import { SignupComponent } from './common/signup/signup.component';
+import { AddressListComponent } from './common/address-list/address-list.component';
+import { AddAddressComponent } from './common/add-address/add-address.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -27,6 +29,8 @@ const routes: Routes = [
   { path: 'order_payment', component: OrderPaymentComponent},
   { path: 'support', component: CustomerSupportComponent},
   { path: 'aboutus', component: AboutusComponent},
+  { path: 'addresses', component: AddressListComponent},
+  { path: 'add_address', component: AddAddressComponent},
 ];
 
 @NgModule({

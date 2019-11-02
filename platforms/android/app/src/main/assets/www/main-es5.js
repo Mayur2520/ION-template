@@ -469,7 +469,7 @@ module.exports = "<ion-header>\n    <mat-toolbar color=\"primary\">\n      <mat-
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <mat-toolbar color=\"primary\">\n    <mat-toolbar-row>\n      <ion-back-button></ion-back-button>\n      <span class=\"text-spacer\">Cart</span>\n      <span class=\"example-spacer\"></span>\n      <mat-icon class=\"icon-left\" aria-hidden=\"false\" matBadge=\"{{myCart.length}}\" matBadgePosition=\"after\"\n        matBadgeColor=\"warn\" (click)=\"UpdateCart()\">shopping_cart</mat-icon>\n    </mat-toolbar-row>\n  </mat-toolbar>\n  <ion-toolbar *ngIf=\"myCart.length > 0\">\n      <ion-item>\n          <ion-grid>\n            <ion-row>\n              <ion-col size=\"6\" class=\"pull-left\">\n                <ion-label>MRP</ion-label>\n              </ion-col>\n              <ion-col size=\"6\" class=\"pull-right text-right\">\n                <ion-label>{{calculateMrp()| currency:\"₹\"}}</ion-label>\n              </ion-col>\n           \n           \n              <ion-col size=\"6\" class=\"pull-left\">\n                <ion-label>Total discount</ion-label>\n              </ion-col>\n              <ion-col size=\"6\" class=\"pull-right text-right\">\n                <ion-label color=\"success\">{{discount| currency:\"₹\"}}</ion-label>\n              </ion-col>\n          \n         \n              <ion-col size=\"6\" class=\"pull-left\">\n                <ion-label>Delivery Charges</ion-label>\n              </ion-col>\n              <ion-col size=\"6\" class=\"pull-right text-right\">\n                <ion-label color=\"danger\">{{+shipping| currency:\"₹\"}}</ion-label>\n              </ion-col>\n          \n            <ion-item-divider>\n              </ion-item-divider>\n          \n            <ion-col size=\"6\" class=\"pull-left\">\n                <ion-title>Sub total</ion-title>\n              </ion-col>\n              <ion-col size=\"6\" class=\"pull-right text-right\">\n                <ion-title>{{(calculateMrp() + discount + shipping)| currency:\"₹\"}}</ion-title>\n              </ion-col>\n              <ion-col size=\"12\" class=\"pull-right text-right\">\n                      <ion-label class=\"orange-text\">Checkout <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></ion-label>\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </ion-item>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n\n  <div class=\"row emptycart\" *ngIf=\"myCart.length == 0\">\n    <div class=\"middel-container\">\n    <div class=\"col-6 col-md-6 col-sm-6 ml-auto mr-auto mt-4\">\n        <ion-img src=\"../../../assets/images/shopping-basket.png\"></ion-img>\n    </div>\n    <div class=\"col-12 col-sm-12 col-md-12 ml-auto mr-auto mt-2\">\n      <ion-title>No items in your cart</ion-title>\n      <p>Fill the cart with your favourite items.</p>\n    </div>\n    <div class=\"col-6 col-sm-6 col-md-6 ml-auto mr-auto\">\n      <button class=\"btn-small waves-effect waves-light\" (click)=\"redirectionToUrl('/home')\">Start Shopping</button>\n    </div>\n  </div>\n  </div>\n\n  <ion-list *ngIf=\"myCart.length > 0\">\n    <ion-item *ngFor=\"let _data of myCart\">\n      <ion-avatar slot=\"start\">\n        <ion-img [src]=\"_data.image\"></ion-img>\n      </ion-avatar>\n      <ion-label>\n        <h2>{{_data.name}}</h2>\n        <h3>{{_data.price | currency:\"₹\"}}</h3>\n        <h3>{{(_data.price * _data.qty) | currency:\"₹\"}}</h3>\n\n        <div class=\"col-12 col-sm-12 col-md-12\">\n          <div class=\"btn-group btn-group-sm pull-right pb-2\">\n            <button type=\"button\" class=\"btn-floating btn-small waves-effect waves-light\"><i class=\"material-icons\"\n                (click)=\"updateitemQty(_data,'dec')\">\n                remove\n              </i></button>\n            <button type=\"button\" class=\"btn-floating btn-small waves-effect waves-light grey\">{{_data.qty}}</button>\n            <button type=\"button\" class=\"btn-floating btn-small waves-effect waves-light\"><i class=\"material-icons\"\n                (click)=\"updateitemQty(_data,'inc')\">\n                add\n              </i></button>\n          </div>\n        </div>\n      </ion-label>\n    </ion-item>\n  </ion-list>\n</ion-content>"
+module.exports = "<ion-header>\n  <mat-toolbar color=\"primary\">\n    <mat-toolbar-row>\n      <ion-back-button></ion-back-button>\n      <span class=\"text-spacer\">Cart</span>\n      <span class=\"example-spacer\"></span>\n      <mat-icon class=\"icon-left\" aria-hidden=\"false\" matBadge=\"{{myCart.length}}\" matBadgePosition=\"after\"\n        matBadgeColor=\"warn\" (click)=\"UpdateCart()\">shopping_cart</mat-icon>\n    </mat-toolbar-row>\n  </mat-toolbar>\n  <ion-toolbar *ngIf=\"myCart.length > 0\">\n      <ion-item>\n          <ion-grid>\n            <ion-row>\n              <ion-col size=\"6\" class=\"pull-left\">\n                <ion-label>MRP</ion-label>\n              </ion-col>\n              <ion-col size=\"6\" class=\"pull-right text-right\">\n                <ion-label>{{calculateMrp()| currency:\"₹\"}}</ion-label>\n              </ion-col>\n           \n           \n              <ion-col size=\"6\" class=\"pull-left\">\n                <ion-label>Total discount</ion-label>\n              </ion-col>\n              <ion-col size=\"6\" class=\"pull-right text-right\">\n                <ion-label color=\"success\">{{discount| currency:\"₹\"}}</ion-label>\n              </ion-col>\n          \n         \n              <ion-col size=\"6\" class=\"pull-left\">\n                <ion-label>Delivery Charges</ion-label>\n              </ion-col>\n              <ion-col size=\"6\" class=\"pull-right text-right\">\n                <ion-label color=\"danger\">{{+shipping| currency:\"₹\"}}</ion-label>\n              </ion-col>\n          \n            <ion-item-divider>\n              </ion-item-divider>\n          \n            <ion-col size=\"6\" class=\"pull-left\">\n                <ion-title>Sub total</ion-title>\n              </ion-col>\n              <ion-col size=\"6\" class=\"pull-right text-right\">\n                <ion-title>{{(calculateMrp() + discount + shipping)| currency:\"₹\"}}</ion-title>\n              </ion-col>\n              <ion-col size=\"12\" class=\"pull-right text-right\" (click)=\"redirectionToUrl('order_confirm')\">\n                      <ion-label class=\"orange-text\">Checkout <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></ion-label>\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </ion-item>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n\n  <div class=\"row emptycart\" *ngIf=\"myCart.length == 0\">\n    <div class=\"middel-container\">\n    <div class=\"col-6 col-md-6 col-sm-6 ml-auto mr-auto mt-4\">\n        <ion-img src=\"../../../assets/images/shopping-basket.png\"></ion-img>\n    </div>\n    <div class=\"col-12 col-sm-12 col-md-12 ml-auto mr-auto mt-2\">\n      <ion-title>No items in your cart</ion-title>\n      <p>Fill the cart with your favourite items.</p>\n    </div>\n    <div class=\"col-6 col-sm-6 col-md-6 ml-auto mr-auto\">\n      <button class=\"btn-small waves-effect waves-light\" (click)=\"redirectionToUrl('/home')\">Start Shopping</button>\n    </div>\n  </div>\n  </div>\n\n  <ion-list *ngIf=\"myCart.length > 0\">\n    <ion-item *ngFor=\"let _data of myCart\">\n      <ion-avatar slot=\"start\">\n        <ion-img [src]=\"_data.image\"></ion-img>\n      </ion-avatar>\n      <ion-label>\n        <h2>{{_data.name}}</h2>\n        <h3>{{_data.price | currency:\"₹\"}}</h3>\n        <h3>{{(_data.price * _data.qty) | currency:\"₹\"}}</h3>\n\n        <div class=\"col-12 col-sm-12 col-md-12\">\n          <div class=\"btn-group btn-group-sm pull-right pb-2\">\n            <button type=\"button\" class=\"btn-floating btn-small waves-effect waves-light\"><i class=\"material-icons\"\n                (click)=\"updateitemQty(_data,'dec')\">\n                remove\n              </i></button>\n            <button type=\"button\" class=\"btn-floating btn-small waves-effect waves-light grey\">{{_data.qty}}</button>\n            <button type=\"button\" class=\"btn-floating btn-small waves-effect waves-light\"><i class=\"material-icons\"\n                (click)=\"updateitemQty(_data,'inc')\">\n                add\n              </i></button>\n          </div>\n        </div>\n      </ion-label>\n    </ion-item>\n  </ion-list>\n</ion-content>"
 
 /***/ }),
 
@@ -480,7 +480,7 @@ module.exports = "<ion-header>\n  <mat-toolbar color=\"primary\">\n    <mat-tool
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  confirm-order works!\n</p>\n"
+module.exports = "<ion-header>\n  <mat-toolbar color=\"primary\">\n    <mat-toolbar-row>\n      <ion-back-button></ion-back-button>\n      <span class=\"text-spacer\">Address, Date & Time</span>\n      <span class=\"example-spacer\"></span>\n     <!--  <mat-icon class=\"icon-left\" aria-hidden=\"false\" matBadge=\"{{myCart.length}}\" matBadgePosition=\"after\"\n        matBadgeColor=\"warn\" (click)=\"RedirectToCart()\">shopping_cart</mat-icon> -->\n    </mat-toolbar-row>\n  </mat-toolbar>\n</ion-header>\n<ion-content fullscreen>\n  \n</ion-content>"
 
 /***/ }),
 
@@ -513,7 +513,7 @@ module.exports = "<p>\n  login works!\n</p>\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-menu contentId=\"content1\" side=\"start\">\n    <ion-header>\n      <ion-toolbar>\n        <ion-title>Welcome</ion-title>\n      </ion-toolbar>\n    </ion-header>\n    <ion-content>\n        <ion-list lines=\"none\">\n            <ion-item-divider>\n                <mat-icon aria-hidden=\"false\">room</mat-icon>\n                <span style=\"margin-right: 5px;\">144/A-18, Trimurti CHS, New mhada coloney, Pawar nagar, Thane(W), 400610.</span>\n              </ion-item-divider>\n            <ion-item  *ngFor=\"let _menu of MenuItems\" (click)=\"redirectionToUrl(_menu.url)\">\n              <mat-icon aria-hidden=\"false\">{{_menu.icon}}</mat-icon>\n              <ion-label>&nbsp;&nbsp;{{_menu.name}}</ion-label>\n            </ion-item>\n            <ion-item-divider>\n                <ion-label>\n                  Other\n                </ion-label>\n              </ion-item-divider>\n              <ion-item  *ngFor=\"let _menu of OtherMenuItems\" (click)=\"redirectionToUrl(_menu.url)\">\n                  <mat-icon aria-hidden=\"false\">{{_menu.icon}}</mat-icon>\n                  <ion-label>&nbsp;&nbsp;{{_menu.name}}</ion-label>\n                </ion-item>\n                <ion-item>\n                    <ion-label>V1.0.0</ion-label>\n                  </ion-item>\n                  \n                              <ion-item>\n                                  <ion-label>Night mode</ion-label>\n                                  <ion-toggle [(ngModel)]=\"nightmode\" (click)=\"changeTheme('night')\"></ion-toggle>\n                                </ion-item>\n        \n          </ion-list>\n    </ion-content>\n  </ion-menu>"
+module.exports = "<ion-menu contentId=\"content1\" side=\"start\">\n    <ion-header>\n      <ion-toolbar>\n        <ion-title>Welcome</ion-title>\n      </ion-toolbar>\n    </ion-header>\n    <ion-content>\n        <ion-list lines=\"none\">\n            <ion-item-divider>\n                <mat-icon aria-hidden=\"false\">room</mat-icon>\n                <span style=\"margin-right: 5px;\">{{currentAddress}}</span>\n              </ion-item-divider>\n            <ion-item  *ngFor=\"let _menu of MenuItems\" (click)=\"redirectionToUrl(_menu.url)\">\n              <mat-icon aria-hidden=\"false\">{{_menu.icon}}</mat-icon>\n              <ion-label>&nbsp;&nbsp;{{_menu.name}}</ion-label>\n            </ion-item>\n            <ion-item-divider>\n                <ion-label>\n                  Other\n                </ion-label>\n              </ion-item-divider>\n              <ion-item  *ngFor=\"let _menu of OtherMenuItems\" (click)=\"redirectionToUrl(_menu.url)\">\n                  <mat-icon aria-hidden=\"false\">{{_menu.icon}}</mat-icon>\n                  <ion-label>&nbsp;&nbsp;{{_menu.name}}</ion-label>\n                </ion-item>\n                <ion-item>\n                    <ion-label>V1.0.0</ion-label>\n                  </ion-item>\n                  \n                              <ion-item>\n                                <ion-col>\n                                <ion-label>App mode</ion-label>\n                                </ion-col>  \n                                <ion-col class=\"text-right\">\n                                  <label class=\"switch mt-2\">\n                                    <input type=\"checkbox\" [(ngModel)]=\"nightmode\" (click)=\"enableDisableNightMode()\" class=\"checkbox-white\">\n                                    <span class=\"slider round\"></span>\n                                  </label> \n                                </ion-col>\n\n                               \n                                 <!--  <label class=\"switch mt-2\">\n                                    <input type=\"checkbox\" (click)=\"enableDisableNightMode()\" class=\"checkbox-white\">\n                                    <span class=\"slider round\"></span>\n                                  </label> -->\n\n                                  <!-- <ion-toggle [(ngModel)]=\"nightmode\" (click)=\"enableDisableNightMode()\"></ion-toggle> -->\n                                </ion-item>\n        \n          </ion-list>\n    </ion-content>\n  </ion-menu>"
 
 /***/ }),
 
@@ -744,21 +744,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
 /* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ionic/storage */ "./node_modules/@ionic/storage/fesm5/ionic-storage.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _common_navigation_navigation_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./common/navigation/navigation.component */ "./src/app/common/navigation/navigation.component.ts");
-/* harmony import */ var _common_aboutus_aboutus_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./common/aboutus/aboutus.component */ "./src/app/common/aboutus/aboutus.component.ts");
-/* harmony import */ var _common_cart_cart_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./common/cart/cart.component */ "./src/app/common/cart/cart.component.ts");
-/* harmony import */ var _common_confirm_order_confirm_order_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./common/confirm-order/confirm-order.component */ "./src/app/common/confirm-order/confirm-order.component.ts");
-/* harmony import */ var _common_customer_support_customer_support_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./common/customer-support/customer-support.component */ "./src/app/common/customer-support/customer-support.component.ts");
-/* harmony import */ var _common_login_login_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./common/login/login.component */ "./src/app/common/login/login.component.ts");
-/* harmony import */ var _common_offers_offers_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./common/offers/offers.component */ "./src/app/common/offers/offers.component.ts");
-/* harmony import */ var _common_order_history_order_history_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./common/order-history/order-history.component */ "./src/app/common/order-history/order-history.component.ts");
-/* harmony import */ var _common_order_payment_order_payment_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./common/order-payment/order-payment.component */ "./src/app/common/order-payment/order-payment.component.ts");
-/* harmony import */ var _common_product_details_product_details_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./common/product-details/product-details.component */ "./src/app/common/product-details/product-details.component.ts");
-/* harmony import */ var _common_separet_section_separet_section_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./common/separet-section/separet-section.component */ "./src/app/common/separet-section/separet-section.component.ts");
-/* harmony import */ var _common_signup_signup_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./common/signup/signup.component */ "./src/app/common/signup/signup.component.ts");
-/* harmony import */ var _services_products_service__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./services/products.service */ "./src/app/services/products.service.ts");
-/* harmony import */ var _modules_material_module__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./modules/material-module */ "./src/app/modules/material-module.ts");
-/* harmony import */ var ngx_pinch_zoom__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ngx-pinch-zoom */ "./node_modules/ngx-pinch-zoom/fesm5/ngx-pinch-zoom.js");
+/* harmony import */ var _ionic_native_native_geocoder_ngx__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @ionic-native/native-geocoder/ngx */ "./node_modules/@ionic-native/native-geocoder/ngx/index.js");
+/* harmony import */ var _ionic_native_android_permissions_ngx__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @ionic-native/android-permissions/ngx */ "./node_modules/@ionic-native/android-permissions/ngx/index.js");
+/* harmony import */ var _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @ionic-native/geolocation/ngx */ "./node_modules/@ionic-native/geolocation/ngx/index.js");
+/* harmony import */ var _ionic_native_location_accuracy_ngx__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @ionic-native/location-accuracy/ngx */ "./node_modules/@ionic-native/location-accuracy/ngx/index.js");
+/* harmony import */ var _common_navigation_navigation_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./common/navigation/navigation.component */ "./src/app/common/navigation/navigation.component.ts");
+/* harmony import */ var _common_aboutus_aboutus_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./common/aboutus/aboutus.component */ "./src/app/common/aboutus/aboutus.component.ts");
+/* harmony import */ var _common_cart_cart_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./common/cart/cart.component */ "./src/app/common/cart/cart.component.ts");
+/* harmony import */ var _common_confirm_order_confirm_order_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./common/confirm-order/confirm-order.component */ "./src/app/common/confirm-order/confirm-order.component.ts");
+/* harmony import */ var _common_customer_support_customer_support_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./common/customer-support/customer-support.component */ "./src/app/common/customer-support/customer-support.component.ts");
+/* harmony import */ var _common_login_login_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./common/login/login.component */ "./src/app/common/login/login.component.ts");
+/* harmony import */ var _common_offers_offers_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./common/offers/offers.component */ "./src/app/common/offers/offers.component.ts");
+/* harmony import */ var _common_order_history_order_history_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./common/order-history/order-history.component */ "./src/app/common/order-history/order-history.component.ts");
+/* harmony import */ var _common_order_payment_order_payment_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./common/order-payment/order-payment.component */ "./src/app/common/order-payment/order-payment.component.ts");
+/* harmony import */ var _common_product_details_product_details_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./common/product-details/product-details.component */ "./src/app/common/product-details/product-details.component.ts");
+/* harmony import */ var _common_separet_section_separet_section_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./common/separet-section/separet-section.component */ "./src/app/common/separet-section/separet-section.component.ts");
+/* harmony import */ var _common_signup_signup_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./common/signup/signup.component */ "./src/app/common/signup/signup.component.ts");
+/* harmony import */ var _services_products_service__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./services/products.service */ "./src/app/services/products.service.ts");
+/* harmony import */ var _modules_material_module__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./modules/material-module */ "./src/app/modules/material-module.ts");
+/* harmony import */ var ngx_pinch_zoom__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ngx-pinch-zoom */ "./node_modules/ngx-pinch-zoom/fesm5/ngx-pinch-zoom.js");
+
+
+
+
 
 
 
@@ -791,21 +799,23 @@ var AppModule = /** @class */ (function () {
     }
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-            declarations: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"], _common_navigation_navigation_component__WEBPACK_IMPORTED_MODULE_12__["NavigationComponent"], _common_cart_cart_component__WEBPACK_IMPORTED_MODULE_14__["CartComponent"], _common_product_details_product_details_component__WEBPACK_IMPORTED_MODULE_21__["ProductDetailsComponent"], _common_separet_section_separet_section_component__WEBPACK_IMPORTED_MODULE_22__["SeparetSectionComponent"], _common_aboutus_aboutus_component__WEBPACK_IMPORTED_MODULE_13__["AboutusComponent"],
-                _common_confirm_order_confirm_order_component__WEBPACK_IMPORTED_MODULE_15__["ConfirmOrderComponent"],
-                _common_customer_support_customer_support_component__WEBPACK_IMPORTED_MODULE_16__["CustomerSupportComponent"],
-                _common_login_login_component__WEBPACK_IMPORTED_MODULE_17__["LoginComponent"],
-                _common_offers_offers_component__WEBPACK_IMPORTED_MODULE_18__["OffersComponent"],
-                _common_order_history_order_history_component__WEBPACK_IMPORTED_MODULE_19__["OrderHistoryComponent"],
-                _common_order_payment_order_payment_component__WEBPACK_IMPORTED_MODULE_20__["OrderPaymentComponent"],
-                _common_signup_signup_component__WEBPACK_IMPORTED_MODULE_23__["SignupComponent"]],
-            entryComponents: [_common_navigation_navigation_component__WEBPACK_IMPORTED_MODULE_12__["NavigationComponent"]],
-            imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"], _ionic_storage__WEBPACK_IMPORTED_MODULE_10__["IonicStorageModule"].forRoot(), _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_8__["AppRoutingModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_9__["BrowserAnimationsModule"], _modules_material_module__WEBPACK_IMPORTED_MODULE_25__["MaterialModules"], ngx_pinch_zoom__WEBPACK_IMPORTED_MODULE_26__["PinchZoomModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_11__["FormsModule"]],
+            declarations: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"], _common_navigation_navigation_component__WEBPACK_IMPORTED_MODULE_16__["NavigationComponent"], _common_cart_cart_component__WEBPACK_IMPORTED_MODULE_18__["CartComponent"], _common_product_details_product_details_component__WEBPACK_IMPORTED_MODULE_25__["ProductDetailsComponent"], _common_separet_section_separet_section_component__WEBPACK_IMPORTED_MODULE_26__["SeparetSectionComponent"], _common_aboutus_aboutus_component__WEBPACK_IMPORTED_MODULE_17__["AboutusComponent"],
+                _common_confirm_order_confirm_order_component__WEBPACK_IMPORTED_MODULE_19__["ConfirmOrderComponent"],
+                _common_customer_support_customer_support_component__WEBPACK_IMPORTED_MODULE_20__["CustomerSupportComponent"],
+                _common_login_login_component__WEBPACK_IMPORTED_MODULE_21__["LoginComponent"],
+                _common_offers_offers_component__WEBPACK_IMPORTED_MODULE_22__["OffersComponent"],
+                _common_order_history_order_history_component__WEBPACK_IMPORTED_MODULE_23__["OrderHistoryComponent"],
+                _common_order_payment_order_payment_component__WEBPACK_IMPORTED_MODULE_24__["OrderPaymentComponent"],
+                _common_signup_signup_component__WEBPACK_IMPORTED_MODULE_27__["SignupComponent"]],
+            entryComponents: [_common_navigation_navigation_component__WEBPACK_IMPORTED_MODULE_16__["NavigationComponent"]],
+            imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"], _ionic_storage__WEBPACK_IMPORTED_MODULE_10__["IonicStorageModule"].forRoot(), _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_8__["AppRoutingModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_9__["BrowserAnimationsModule"], _modules_material_module__WEBPACK_IMPORTED_MODULE_29__["MaterialModules"], ngx_pinch_zoom__WEBPACK_IMPORTED_MODULE_30__["PinchZoomModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_11__["FormsModule"],],
             providers: [
                 _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"],
                 _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"],
                 { provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"], useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicRouteStrategy"] },
-                _services_products_service__WEBPACK_IMPORTED_MODULE_24__["ProductsService"]
+                _services_products_service__WEBPACK_IMPORTED_MODULE_28__["ProductsService"],
+                _ionic_native_native_geocoder_ngx__WEBPACK_IMPORTED_MODULE_12__["NativeGeocoder"], _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_14__["Geolocation"], _ionic_native_android_permissions_ngx__WEBPACK_IMPORTED_MODULE_13__["AndroidPermissions"],
+                _ionic_native_location_accuracy_ngx__WEBPACK_IMPORTED_MODULE_15__["LocationAccuracy"]
             ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
         })
@@ -1133,7 +1143,7 @@ var LoginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".mat-list-icon {\n  color: rgba(0, 0, 0, 0.54);\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tbW9uL25hdmlnYXRpb24vRDpcXE1heXVyIDIzLTctMThcXDIwMTlcXElPTklDXFxUZW1wbGF0ZS9zcmNcXGFwcFxcY29tbW9uXFxuYXZpZ2F0aW9uXFxuYXZpZ2F0aW9uLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9jb21tb24vbmF2aWdhdGlvbi9uYXZpZ2F0aW9uLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksMEJBQUE7QUNDSiIsImZpbGUiOiJzcmMvYXBwL2NvbW1vbi9uYXZpZ2F0aW9uL25hdmlnYXRpb24uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubWF0LWxpc3QtaWNvbiB7XHJcbiAgICBjb2xvcjogcmdiYSgwLCAwLCAwLCAwLjU0KTtcclxuICB9IiwiLm1hdC1saXN0LWljb24ge1xuICBjb2xvcjogcmdiYSgwLCAwLCAwLCAwLjU0KTtcbn0iXX0= */"
+module.exports = ".mat-list-icon {\n  color: rgba(0, 0, 0, 0.54);\n}\n\n.switch {\n  position: relative;\n  display: inline-block;\n  width: 60px;\n  height: 34px;\n}\n\n.switch input {\n  opacity: 0;\n  width: 0;\n  height: 0;\n}\n\n.slider {\n  position: absolute;\n  cursor: pointer;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: #ccc;\n  -webkit-transition: 0.4s;\n  transition: 0.4s;\n}\n\n.slider:before {\n  position: absolute;\n  content: \"\";\n  height: 30px;\n  width: 30px;\n  left: 4px;\n  bottom: 4px;\n  background: url('cloudy.png') no-repeat;\n  -webkit-transition: 0.4s;\n  transition: 0.4s;\n}\n\ninput:checked + .slider:before {\n  position: absolute;\n  height: 30px;\n  width: 30px;\n  background: url('moon.png') no-repeat;\n  -webkit-transform: translateX(38px);\n  transform: translateX(38px);\n}\n\n/* Rounded sliders */\n\n.slider.round {\n  border-radius: 34px;\n}\n\n.slider.round:before {\n  border-radius: 50%;\n}\n\n[type=checkbox]:checked + span:not(.lever):before {\n  border-top: 0px solid transparent !important;\n  border-left: 0px solid transparent !important;\n  border-right: 0px solid transparent !important;\n  border-bottom: 0px solid transparent !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tbW9uL25hdmlnYXRpb24vRDpcXE1heXVyIDIzLTctMThcXDIwMTlcXElPTklDXFxUZW1wbGF0ZS9zcmNcXGFwcFxcY29tbW9uXFxuYXZpZ2F0aW9uXFxuYXZpZ2F0aW9uLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9jb21tb24vbmF2aWdhdGlvbi9uYXZpZ2F0aW9uLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksMEJBQUE7QUNDSjs7QURFRTtFQUNFLGtCQUFBO0VBQ0EscUJBQUE7RUFDQSxXQUFBO0VBQ0EsWUFBQTtBQ0NKOztBREVFO0VBQ0UsVUFBQTtFQUNBLFFBQUE7RUFDQSxTQUFBO0FDQ0o7O0FERUU7RUFDRSxrQkFBQTtFQUNBLGVBQUE7RUFDQSxNQUFBO0VBQ0EsT0FBQTtFQUNBLFFBQUE7RUFDQSxTQUFBO0VBQ0Esc0JBQUE7RUFDQSx3QkFBQTtFQUNBLGdCQUFBO0FDQ0o7O0FERUU7RUFDRSxrQkFBQTtFQUNBLFdBQUE7RUFDQSxZQUFBO0VBQ0EsV0FBQTtFQUNBLFNBQUE7RUFDQSxXQUFBO0VBQ0EsdUNBQUE7RUFDQSx3QkFBQTtFQUNBLGdCQUFBO0FDQ0o7O0FER0U7RUFDRSxrQkFBQTtFQUNBLFlBQUE7RUFDQSxXQUFBO0VBQ0EscUNBQUE7RUFDQSxtQ0FBQTtFQUVBLDJCQUFBO0FDQUo7O0FER0Usb0JBQUE7O0FBQ0E7RUFDRSxtQkFBQTtBQ0FKOztBREdFO0VBQ0Usa0JBQUE7QUNBSjs7QURJRTtFQUNFLDRDQUFBO0VBQ0EsNkNBQUE7RUFDQSw4Q0FBQTtFQUNBLCtDQUFBO0FDREoiLCJmaWxlIjoic3JjL2FwcC9jb21tb24vbmF2aWdhdGlvbi9uYXZpZ2F0aW9uLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm1hdC1saXN0LWljb24ge1xyXG4gICAgY29sb3I6IHJnYmEoMCwgMCwgMCwgMC41NCk7XHJcbiAgfVxyXG5cclxuICAuc3dpdGNoIHtcclxuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICAgIHdpZHRoOiA2MHB4O1xyXG4gICAgaGVpZ2h0OiAzNHB4O1xyXG4gIH1cclxuICBcclxuICAuc3dpdGNoIGlucHV0IHsgXHJcbiAgICBvcGFjaXR5OiAwO1xyXG4gICAgd2lkdGg6IDA7XHJcbiAgICBoZWlnaHQ6IDA7XHJcbiAgfVxyXG4gIFxyXG4gIC5zbGlkZXIge1xyXG4gICAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG4gICAgdG9wOiAwO1xyXG4gICAgbGVmdDogMDtcclxuICAgIHJpZ2h0OiAwO1xyXG4gICAgYm90dG9tOiAwO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2NjYztcclxuICAgIC13ZWJraXQtdHJhbnNpdGlvbjogLjRzO1xyXG4gICAgdHJhbnNpdGlvbjogLjRzO1xyXG4gIH1cclxuICBcclxuICAuc2xpZGVyOmJlZm9yZSB7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICBjb250ZW50OiBcIlwiO1xyXG4gICAgaGVpZ2h0OiAzMHB4O1xyXG4gICAgd2lkdGg6IDMwcHg7XHJcbiAgICBsZWZ0OiA0cHg7XHJcbiAgICBib3R0b206IDRweDtcclxuICAgIGJhY2tncm91bmQ6dXJsKCcuLi8uLi8uLi9hc3NldHMvaW1hZ2VzL2FwcG1vZGVzL2Nsb3VkeS5wbmcnKSBuby1yZXBlYXQ7XHJcbiAgICAtd2Via2l0LXRyYW5zaXRpb246IC40cztcclxuICAgIHRyYW5zaXRpb246IC40cztcclxuICB9XHJcbiAgXHJcbiAgXHJcbiAgaW5wdXQ6Y2hlY2tlZCArIC5zbGlkZXI6YmVmb3JlIHtcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIGhlaWdodDogMzBweDtcclxuICAgIHdpZHRoOiAzMHB4O1xyXG4gICAgYmFja2dyb3VuZDp1cmwoJy4uLy4uLy4uL2Fzc2V0cy9pbWFnZXMvYXBwbW9kZXMvbW9vbi5wbmcnKSBuby1yZXBlYXQ7XHJcbiAgICAtd2Via2l0LXRyYW5zZm9ybTogdHJhbnNsYXRlWCgzOHB4KTtcclxuICAgIC1tcy10cmFuc2Zvcm06IHRyYW5zbGF0ZVgoMzhweCk7XHJcbiAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVgoMzhweCk7XHJcbiAgfVxyXG4gIFxyXG4gIC8qIFJvdW5kZWQgc2xpZGVycyAqL1xyXG4gIC5zbGlkZXIucm91bmQge1xyXG4gICAgYm9yZGVyLXJhZGl1czogMzRweDtcclxuICB9XHJcbiAgXHJcbiAgLnNsaWRlci5yb3VuZDpiZWZvcmUge1xyXG4gICAgYm9yZGVyLXJhZGl1czogNTAlO1xyXG4gIH1cclxuXHJcblxyXG4gIFt0eXBlPVwiY2hlY2tib3hcIl06Y2hlY2tlZCtzcGFuOm5vdCgubGV2ZXIpOmJlZm9yZSB7XHJcbiAgICBib3JkZXItdG9wOiAwcHggc29saWQgdHJhbnNwYXJlbnQgIWltcG9ydGFudDtcclxuICAgIGJvcmRlci1sZWZ0OiAwcHggc29saWQgdHJhbnNwYXJlbnQgIWltcG9ydGFudDtcclxuICAgIGJvcmRlci1yaWdodDogMHB4IHNvbGlkIHRyYW5zcGFyZW50ICFpbXBvcnRhbnQ7XHJcbiAgICBib3JkZXItYm90dG9tOiAwcHggc29saWQgdHJhbnNwYXJlbnQgIWltcG9ydGFudDtcclxufVxyXG5cclxuIiwiLm1hdC1saXN0LWljb24ge1xuICBjb2xvcjogcmdiYSgwLCAwLCAwLCAwLjU0KTtcbn1cblxuLnN3aXRjaCB7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICB3aWR0aDogNjBweDtcbiAgaGVpZ2h0OiAzNHB4O1xufVxuXG4uc3dpdGNoIGlucHV0IHtcbiAgb3BhY2l0eTogMDtcbiAgd2lkdGg6IDA7XG4gIGhlaWdodDogMDtcbn1cblxuLnNsaWRlciB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgY3Vyc29yOiBwb2ludGVyO1xuICB0b3A6IDA7XG4gIGxlZnQ6IDA7XG4gIHJpZ2h0OiAwO1xuICBib3R0b206IDA7XG4gIGJhY2tncm91bmQtY29sb3I6ICNjY2M7XG4gIC13ZWJraXQtdHJhbnNpdGlvbjogMC40cztcbiAgdHJhbnNpdGlvbjogMC40cztcbn1cblxuLnNsaWRlcjpiZWZvcmUge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIGNvbnRlbnQ6IFwiXCI7XG4gIGhlaWdodDogMzBweDtcbiAgd2lkdGg6IDMwcHg7XG4gIGxlZnQ6IDRweDtcbiAgYm90dG9tOiA0cHg7XG4gIGJhY2tncm91bmQ6IHVybChcIi4uLy4uLy4uL2Fzc2V0cy9pbWFnZXMvYXBwbW9kZXMvY2xvdWR5LnBuZ1wiKSBuby1yZXBlYXQ7XG4gIC13ZWJraXQtdHJhbnNpdGlvbjogMC40cztcbiAgdHJhbnNpdGlvbjogMC40cztcbn1cblxuaW5wdXQ6Y2hlY2tlZCArIC5zbGlkZXI6YmVmb3JlIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBoZWlnaHQ6IDMwcHg7XG4gIHdpZHRoOiAzMHB4O1xuICBiYWNrZ3JvdW5kOiB1cmwoXCIuLi8uLi8uLi9hc3NldHMvaW1hZ2VzL2FwcG1vZGVzL21vb24ucG5nXCIpIG5vLXJlcGVhdDtcbiAgLXdlYmtpdC10cmFuc2Zvcm06IHRyYW5zbGF0ZVgoMzhweCk7XG4gIC1tcy10cmFuc2Zvcm06IHRyYW5zbGF0ZVgoMzhweCk7XG4gIHRyYW5zZm9ybTogdHJhbnNsYXRlWCgzOHB4KTtcbn1cblxuLyogUm91bmRlZCBzbGlkZXJzICovXG4uc2xpZGVyLnJvdW5kIHtcbiAgYm9yZGVyLXJhZGl1czogMzRweDtcbn1cblxuLnNsaWRlci5yb3VuZDpiZWZvcmUge1xuICBib3JkZXItcmFkaXVzOiA1MCU7XG59XG5cblt0eXBlPWNoZWNrYm94XTpjaGVja2VkICsgc3Bhbjpub3QoLmxldmVyKTpiZWZvcmUge1xuICBib3JkZXItdG9wOiAwcHggc29saWQgdHJhbnNwYXJlbnQgIWltcG9ydGFudDtcbiAgYm9yZGVyLWxlZnQ6IDBweCBzb2xpZCB0cmFuc3BhcmVudCAhaW1wb3J0YW50O1xuICBib3JkZXItcmlnaHQ6IDBweCBzb2xpZCB0cmFuc3BhcmVudCAhaW1wb3J0YW50O1xuICBib3JkZXItYm90dG9tOiAwcHggc29saWQgdHJhbnNwYXJlbnQgIWltcG9ydGFudDtcbn0iXX0= */"
 
 /***/ }),
 
@@ -1151,18 +1161,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/storage */ "./node_modules/@ionic/storage/fesm5/ionic-storage.js");
+/* harmony import */ var _ionic_native_native_geocoder_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic-native/native-geocoder/ngx */ "./node_modules/@ionic-native/native-geocoder/ngx/index.js");
+/* harmony import */ var _ionic_native_android_permissions_ngx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic-native/android-permissions/ngx */ "./node_modules/@ionic-native/android-permissions/ngx/index.js");
+/* harmony import */ var _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic-native/geolocation/ngx */ "./node_modules/@ionic-native/geolocation/ngx/index.js");
+/* harmony import */ var _ionic_native_location_accuracy_ngx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ionic-native/location-accuracy/ngx */ "./node_modules/@ionic-native/location-accuracy/ngx/index.js");
 
 
 
 
+
+
+
+
+
+var options = {
+    useLocale: true,
+    maxResults: 5
+};
 var NavigationComponent = /** @class */ (function () {
-    function NavigationComponent(router, menuCtrl) {
+    function NavigationComponent(router, storage, menuCtrl, geolocation, nativeGeocoder, androidPermissions, locationAccuracy) {
         this.router = router;
+        this.storage = storage;
         this.menuCtrl = menuCtrl;
+        this.geolocation = geolocation;
+        this.nativeGeocoder = nativeGeocoder;
+        this.androidPermissions = androidPermissions;
+        this.locationAccuracy = locationAccuracy;
+        this.nightmode = false;
+        this.currentAddress = '';
         this.MenuItems = [
             { name: "Login", icon: "person", url: '/signin' },
             { name: "Home", icon: "home", url: '/home' },
             { name: "Offers", icon: "local_offer", url: '/offers' },
+            { name: "My Addresses", icon: "my_location", url: '/addresses' },
             { name: "My Orders", icon: "history", url: '/order_history' },
             { name: "My Cart", icon: "shopping_cart", url: '/cart' },
         ];
@@ -1175,14 +1207,120 @@ var NavigationComponent = /** @class */ (function () {
         ];
     }
     NavigationComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.checkGPSPermission();
+        // this.getCurrentLocation();
+        this.storage.get('mode').then(function (val) {
+            var body = document.getElementById("body");
+            if (val != null) {
+                if (val == "dark") {
+                    _this.nightmode = true;
+                }
+                else {
+                    _this.nightmode = false;
+                }
+                body.className = val;
+                // this.storage.set('mode',body.className);
+            }
+            else {
+                body.className = 'light';
+                _this.nightmode = false;
+                _this.storage.set('mode', 'light');
+            }
+        });
+    };
+    //Check if application having GPS access permission  
+    NavigationComponent.prototype.checkGPSPermission = function () {
+        var _this = this;
+        this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.ACCESS_COARSE_LOCATION).then(function (result) {
+            if (result.hasPermission) {
+                //If having permission show 'Turn On GPS' dialogue
+                _this.askToTurnOnGPS();
+            }
+            else {
+                //If not having permission ask for permission
+                _this.requestGPSPermission();
+            }
+        }, function (err) {
+            alert(err);
+        });
+    };
+    NavigationComponent.prototype.requestGPSPermission = function () {
+        var _this = this;
+        this.locationAccuracy.canRequest().then(function (canRequest) {
+            if (canRequest) {
+                console.log("4");
+            }
+            else {
+                //Show 'GPS Permission Request' dialogue
+                _this.androidPermissions.requestPermission(_this.androidPermissions.PERMISSION.ACCESS_COARSE_LOCATION)
+                    .then(function () {
+                    // call method to turn on GPS
+                    _this.askToTurnOnGPS();
+                }, function (error) {
+                    //Show alert if user click on 'No Thanks'
+                    alert('requestPermission Error requesting location permissions ' + error);
+                });
+            }
+        });
+    };
+    NavigationComponent.prototype.askToTurnOnGPS = function () {
+        var _this = this;
+        this.locationAccuracy.request(this.locationAccuracy.REQUEST_PRIORITY_HIGH_ACCURACY).then(function () {
+            // When GPS Turned ON call method to get Accurate location coordinates
+            _this.getCurrentLocation();
+        }, function (error) { return alert('Error requesting location permissions ' + JSON.stringify(error)); });
+    };
+    NavigationComponent.prototype.getCurrentLocation = function () {
+        var _this = this;
+        this.geolocation.getCurrentPosition().then(function (resp) {
+            // resp.coords.latitude
+            // resp.coords.longitude
+            _this.nativeGeocoder.reverseGeocode(resp.coords.latitude, resp.coords.longitude, options)
+                .then(function (result) {
+                // alert(JSON.stringify(result[0])); 
+                _this.currentAddress += result[0].areasOfInterest[0] + ', ' + result[0].subLocality + ', ' + result[0].locality + ', ' + result[0].subAdministrativeArea + ', ' + result[0].administrativeArea + ', ' + result[0].postalCode + ', ' + result[0].countryName + '.';
+                _this.currentAddress = _this.currentAddress.replace(/' ,'/g, '');
+            })
+                .catch(function (error) { return console.log(error); });
+        }).catch(function (error) {
+            alert('Error getting location' + JSON.stringify(error));
+        });
     };
     NavigationComponent.prototype.redirectionToUrl = function (urlparams) {
         this.router.navigate([urlparams]);
         this.menuCtrl.toggle();
     };
+    NavigationComponent.prototype.enableDisableNightMode = function () {
+        var _this = this;
+        var body = document.getElementById("body");
+        this.storage.get('mode').then(function (val) {
+            console.log(val);
+            if (val != null) {
+                if (val == "dark") {
+                    val = "light";
+                    _this.nightmode = false;
+                }
+                else {
+                    val = "dark";
+                    _this.nightmode = true;
+                }
+                // var currentClass = body.className;
+                body.className = val;
+                _this.storage.set('mode', body.className);
+            }
+            else {
+            }
+        });
+    };
     NavigationComponent.ctorParameters = function () { return [
         { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["MenuController"] }
+        { type: _ionic_storage__WEBPACK_IMPORTED_MODULE_4__["Storage"] },
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["MenuController"] },
+        { type: _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_7__["Geolocation"] },
+        { type: _ionic_native_native_geocoder_ngx__WEBPACK_IMPORTED_MODULE_5__["NativeGeocoder"] },
+        { type: _ionic_native_android_permissions_ngx__WEBPACK_IMPORTED_MODULE_6__["AndroidPermissions"] },
+        { type: _ionic_native_location_accuracy_ngx__WEBPACK_IMPORTED_MODULE_8__["LocationAccuracy"] }
     ]; };
     NavigationComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1190,7 +1328,7 @@ var NavigationComponent = /** @class */ (function () {
             template: __webpack_require__(/*! raw-loader!./navigation.component.html */ "./node_modules/raw-loader/index.js!./src/app/common/navigation/navigation.component.html"),
             styles: [__webpack_require__(/*! ./navigation.component.scss */ "./src/app/common/navigation/navigation.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["MenuController"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _ionic_storage__WEBPACK_IMPORTED_MODULE_4__["Storage"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["MenuController"], _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_7__["Geolocation"], _ionic_native_native_geocoder_ngx__WEBPACK_IMPORTED_MODULE_5__["NativeGeocoder"], _ionic_native_android_permissions_ngx__WEBPACK_IMPORTED_MODULE_6__["AndroidPermissions"], _ionic_native_location_accuracy_ngx__WEBPACK_IMPORTED_MODULE_8__["LocationAccuracy"]])
     ], NavigationComponent);
     return NavigationComponent;
 }());

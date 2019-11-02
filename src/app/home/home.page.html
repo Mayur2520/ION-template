@@ -62,7 +62,7 @@
                   <ion-tabs>
                       <ion-tab-bar slot="bottom" class="themebg">
                         <ion-tab-button expand="full" (click)="addToCart(fruits)" style="background-color: transparent;">
-                          <ion-title>Add to Cart</ion-title>
+                          <ion-title color="light">Add to Cart</ion-title>
                         </ion-tab-button>
                     
                       </ion-tab-bar>
@@ -72,7 +72,7 @@
               <mat-toolbar color="primary" *ngIf="(fruits.qty && fruits.qty > 0 || ExitInCart(fruits))">
                   <ion-tabs>
                       <ion-tab-bar slot="bottom"  class="themebg">
-                        <ion-tab-button (click)="updateitemQty(fruits,'dec')" style="background-color: transparent;">
+                        <ion-tab-button (click)="updateitemQty(fruits,'dec')" style="background-color: transparent;color: white;">
                          
                               <i class="material-icons">
                                   exposure_neg_1
@@ -81,10 +81,10 @@
                         </ion-tab-button>
                     
                         <ion-tab-button>
-                          <ion-label>{{fruits.qty}}</ion-label>
+                          <ion-label >{{fruits.qty}}</ion-label>
                         </ion-tab-button>
                     
-                        <ion-tab-button (click)="updateitemQty(fruits,'inc')" style="background-color: transparent;">
+                        <ion-tab-button (click)="updateitemQty(fruits,'inc')"  style="background-color: transparent;color: white;">
                         
                               <i class="material-icons">
                                   exposure_plus_1
@@ -126,7 +126,7 @@
                   <ion-tabs>
                       <ion-tab-bar slot="bottom"  class="themebg">
                         <ion-tab-button expand="full" (click)="addToCart(vegitables)" style="background-color: transparent;">
-                          <ion-title>Add to Cart</ion-title>
+                          <ion-title color="light">Add to Cart</ion-title>
                         </ion-tab-button>
                     
                       </ion-tab-bar>
@@ -136,7 +136,7 @@
               <ion-toolbar *ngIf="(vegitables.qty && vegitables.qty > 0 || ExitInCart(vegitables))">
                   <ion-tabs>
                       <ion-tab-bar slot="bottom" class="themebg">
-                        <ion-tab-button  (click)="updateitemQty(vegitables,'dec')" style="background-color: transparent;">
+                        <ion-tab-button  (click)="updateitemQty(vegitables,'dec')" style="background-color: transparent;color: white;">
                          
                               <i class="material-icons">
                                   exposure_neg_1
@@ -148,7 +148,7 @@
                           <ion-label>{{vegitables.qty}}</ion-label>
                         </ion-tab-button>
                     
-                        <ion-tab-button  (click)="updateitemQty(vegitables,'inc')" style="background-color: transparent;">
+                        <ion-tab-button  (click)="updateitemQty(vegitables,'inc')" style="background-color: transparent;color: white;">
                         
                               <i class="material-icons">
                                   exposure_plus_1
